@@ -26,12 +26,12 @@ jobs:
         branch=$(echo ${{ github.ref }} | cut -d/ -f3)
         echo "::set-output name=branch::$branch"
     # Runs the Checkmarx Scan leveraging the latest version of CxFlow - REFER to Action README for list of inputs
-    - name: Checkmarx CxFlow Action Checkmarx
-    #- name: CxFlow Action Copy - Not Official
+    #- name: Checkmarx CxFlow Action Checkmarx
+    - name: CxFlow Action Copy - Not Official
       #env:
         #JAVA_TOOL_OPTIONS: '-Dhttps.proxyHost=1.1.1.1 -Dhttps.proxyPort=1234'
-      uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.3
-      #uses: DhavalPatelPersistent/checkmarx-cxflow-github-action-copy@master
+      #uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.3
+      uses: DhavalPatelPersistent/checkmarx-cxflow-github-action-copy@master
       with:
         project: GitHub-find-sec-bugs-${{ steps.get-branch.outputs.branch }}
         team: '/CxServer/SP/ANZ/CBA-GH-POC'
